@@ -90,3 +90,45 @@ a {
   color: var(--primary);
 }
 
+/*Därför workHub section */
+.why-workhub {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.why-workhub h2{
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.why-workhub-content {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.why-workhub-content article {
+  flex: 1;
+  min-width: 0;
+}
+.why-workhub-content h3{
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+.why-workhub-content P{
+  color: var(--text);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+.why-workhub-content {
+  flex-direction: column;
+  gap: 1rem;
+}
+}
+
