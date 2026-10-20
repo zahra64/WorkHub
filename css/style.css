@@ -215,46 +215,46 @@ a {
 /* =========================================
    Hero
    ========================================= */
-.hero {
-  background-color: #1a224a;
+.hero-section {
+  background-color: var(--primary);
+  padding: 3rem 0 3.5rem 0;
   color: #ffffff;
-  padding: 80px 40px;
-  text-align: left;
+  width: 100%;
 }
 
 .hero-content {
   max-width: 600px;
 }
 
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: bold;
+.hero-content h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   color: #ffffff;
 }
 
-.hero p {
-  font-size: 1.1rem;
+.hero-content p {
+  font-size: 1.05rem;
   line-height: 1.6;
-  margin-bottom: 30px;
-  color: #e0e0e0;
+  margin-bottom: 2rem;
+  color: #e0e2f5;
 }
 
-.hero .btn-primary,
-.hero a.button {
+.hero-btn {
   display: inline-block;
-  background-color: #e3a92b;
-  color: #1a224a;
-  padding: 14px 28px;
-  border-radius: 8px;
+  background-color: var(--accent);
+  color: var(--text);
   text-decoration: none;
-  font-weight: bold;
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  transition: background-color 0.2s ease-in-out;
+  font-weight: 700;
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.hero .btn-primary:hover,
-.hero a.button:hover {
-  background-color: #d4981d;
+.hero-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+
 }
