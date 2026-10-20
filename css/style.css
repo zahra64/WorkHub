@@ -212,4 +212,49 @@ a {
   background: var(--primary-dark);
 }
 
-/* ************************************** */
+/* =========================================
+   Hero
+   ========================================= */
+.hero {
+  background-color: #1a224a;
+  color: #ffffff;
+  padding: 80px 40px;
+  text-align: left;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #e0e0e0;
+}
+
+.hero .btn-primary,
+.hero a.button {
+  display: inline-block;
+  background-color: #e3a92b;
+  color: #1a224a;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.hero .btn-primary:hover,
+.hero a.button:hover {
+  background-color: #d4981d;
+}
