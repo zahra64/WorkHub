@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // كود الـ Navbar الخاص بزميلك
+ 
   const navLinks = document.querySelectorAll('.nav-link');
 
   navLinks.forEach(link => {
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // كود الـ Hero الخاص بك (التمرير السلس عند الضغط على زر "Se alla upplevelser")
   const heroBtn = document.getElementById('hero-cta-btn');
   
   if (heroBtn) {
