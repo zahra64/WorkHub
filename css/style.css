@@ -205,6 +205,7 @@ a {
   background: var(--primary);
   border-top: 4px solid var(--accent);
   color: #fff;
+  text-align: center;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   margin-top: 3rem;
@@ -395,3 +396,65 @@ input:focus-visible {
 }
 
 /* ************************************** */
+
+
+/* ===========================================================
+   SA BOKAR DU
+   Tillagt av Ali. Tre steg som forklarar bokningsflodet.
+   Samma kortstil som .way-card, sa att sidan hanger ihop.
+   =========================================================== */
+
+.how-to-book {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.how-to-book h2 {
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.how-to-book-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+
+.step-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+/* Siffran ar en egen cirkel, sa att stegens ordning syns
+   aven for den som inte uppfattar farger. */
+.step-number {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.step-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.step-body p {
+  font-size: 0.9375rem;
+}
