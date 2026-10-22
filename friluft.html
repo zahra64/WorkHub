@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WorkHub – Friluftsäventyr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/friluft.css">
+</head>
+<body>
+  <div class="wrapper">
+    
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <a href="index.html" class="logo">WorkHub</a>
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Start</a>
+          <a href="spel.html" class="nav-link">Spel och mysterier</a>
+          <a href="friluft.html" class="nav-link active">Friluftsäventyr</a>
+          <a href="workshops.html" class="nav-link">Kreativa workshops</a>
+          <a href="mat.html" class="nav-link">Mat och smak</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Uppleva naturen på ett nytt sätt</h1>
+          <p>
+            WorkHub erbjuder spännande friluftsäventyr som utmanar och inspirerar. Välj ditt äventyr, se pris för vuxna och barn, och boka direkt nedanför!
+          </p>
+          <a href="#booking-section" id="hero-cta-btn" class="hero-btn">Boka äventyr nu</a>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div class="container">
+        
+        <!-- الأنشطة الأربعة مع أسعار الكبار والأطفال -->
+        <section class="four-ways" id="four-ways">
+          <h2>Fyra spännande äventyr</h2>
+          <div class="four-ways-grid">
+
+            <!-- Activity 1 -->
+            <article class="way-card">
+              <div class="way-card-img way-card-img-camping">
+                <img src="images/tent.jfif" alt="Naturcamping">
+              </div>
+              <div class="way-card-body">
+                <h3>Naturcamping</h3>
+                <p>Upplev tystnaden under stjärnorna i våra färdiga tält. All utrustning ingår.</p>
+                <p class="way-card-price">Vuxen: 1500 kr | Barn: 900 kr</p>
+                <a href="#booking-section" class="way-card-link select-activity" data-activity="Naturcamping">Välj och boka</a>
+              </div>
+            </article>
+
+            <!-- Activity 2 -->
+            <article class="way-card">
+              <div class="way-card-img way-card-img-kanot">
+                <img src="images/canoe.jfif" alt="Kanotpaddling">
+              </div>
+              <div class="way-card-body">
+                <h3>Kanotpaddling</h3>
+                <p>Paddla genom klara vatten och njut av den fridfulla naturen.</p>
+                <p class="way-card-price">Vuxen: 800 kr | Barn: 500 kr</p>
+                <a href="#booking-section" class="way-card-link select-activity" data-activity="Kanotpaddling">Välj och boka</a>
+              </div>
+            </article>
+
+            <!-- Activity 3 -->
+            <article class="way-card">
+              <div class="way-card-img way-card-img-vandring">
+                <img src="images/mountain.jfif" alt="Bergsvandring">
+              </div>
+              <div class="way-card-body">
+                <h3>Bergsvandring</h3>
+                <p>En guidad tur uppför våra mest utmanande bergstoppar.</p>
+                <p class="way-card-price">Vuxen: 1200 kr | Barn: 700 kr</p>
+                <a href="#booking-section" class="way-card-link select-activity" data-activity="Bergsvandring">Välj och boka</a>
+              </div>
+            </article>
+
+            <!-- Activity 4 -->
+            <article class="way-card">
+              <div class="way-card-img way-card-img-cykel">
+                <img src="images/bike.jfif" alt="Cykeltur">
+              </div>
+              <div class="way-card-body">
+                <h3>Cykeltur</h3>
+                <p>Hyr våra professionella cyklar och upplev äventyret på hjul.</p>
+                <p class="way-card-price">Vuxen: 950 kr | Barn: 600 kr</p>
+                <a href="#booking-section" class="way-card-link select-activity" data-activity="Cykeltur">Välj och boka</a>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- قسم نموذج الحجز الفعلي في نفس الصفحة -->
+        <section id="booking-section" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin: 3rem 0;">
+          <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Skicka din bokningsförfrågan</h2>
+          <form id="booking-form">
+            <div style="margin-bottom: 1rem;">
+              <label for="activity-select" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Välj äventyr:</label>
+              <select id="activity-select" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit;">
+                <option value="" disabled selected>-- Välj ett äventyr --</option>
+                <option value="Naturcamping" data-adult="1500" data-child="900">Naturcamping (Vuxen: 1500 kr, Barn: 900 kr)</option>
+                <option value="Kanotpaddling" data-adult="800" data-child="500">Kanotpaddling (Vuxen: 800 kr, Barn: 500 kr)</option>
+                <option value="Bergsvandring" data-adult="1200" data-child="700">Bergsvandring (Vuxen: 1200 kr, Barn: 700 kr)</option>
+                <option value="Cykeltur" data-adult="950" data-child="600">Cykeltur (Vuxen: 950 kr, Barn: 600 kr)</option>
+              </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+              <div>
+                <label for="adults-count" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Antal vuxna:</label>
+                <input type="number" id="adults-count" min="0" max="10" value="1" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+              </div>
+              <div>
+                <label for="children-count" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Antal barn:</label>
+                <input type="number" id="children-count" min="0" max="10" value="0" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <label for="user-name" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Ditt namn:</label>
+              <input type="text" id="user-name" required placeholder="Förnamn Efternamn" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <label for="user-email" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">E-postadress:</label>
+              <input type="email5" id="user-email" required placeholder="namn@exempel.se" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+            </div>
+
+            <!-- عرض السعر الإجمالي -->
+            <div style="background: var(--bg); padding: 1rem; border-radius: var(--radius); margin-bottom: 1.5rem; font-weight: 700; font-size: 1.1rem;">
+              Totalt pris: <span id="total-price" style="color: var(--primary);">0 kr</span>
+            </div>
+
+            <button type="submit" class="hero-btn" style="border: none; cursor: pointer; width: 100%; text-align: center;">Skicka bokningsförfrågan</button>
+          </form>
+        </section>
+
+        <!-- قسم مميزات الموقع -->
+        <section class="why-workhub">
+          <h2>Därför WorkHub</h2>
+          <div class="why-workhub-content">
+            <article>
+              <h3>Allt på ett ställe</h3>
+              <p>Fyra olika områden som passar både vänner, familjer och arbetsgrupper.</p>
+            </article>
+            <article>
+              <h3>Tydligt pris</h3>
+              <p>Du ser totalpriset innan du skickar något. Inga överraskningar.</p>
+            </article>
+            <article>
+              <h3>Enkel bokning</h3>
+              <p>Fyll i ett formulär och få en sammanfattning direkt på sidan.</p>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </main> 
+
+    <footer class="site-footer">
+      <div class="container" style="text-align: center; padding: 20px 0; color: #fff; font-size: 0.9rem;">
+        <p>© 2026 WorkHub, skolprojekt. Inga riktiga bokningar görs.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ملف جافاسكريبت لحساب السعر التلقائي ونموذج الحجز -->
+  <script src="js/friluft.js"></script>
+</body>
+</html>
