@@ -451,7 +451,52 @@ header .container {
     justify-content: center;
   }
 }
-/* ************************************** */
+/* =========================================
+   Hero
+   ========================================= */
+.hero-section {
+  background-color: var(--primary);
+  padding: 3rem 0 3.5rem 0;
+  color: #ffffff;
+  width: 100%;
+}
+ 
+.hero-content {
+  max-width: 600px;
+}
+ 
+.hero-content h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+ 
+.hero-content p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #e0e2f5;
+}
+ 
+.hero-btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+ 
+.hero-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+ 
+}
 
 
 /* ===========================================================
