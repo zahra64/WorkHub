@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nameInput = document.getElementById('user-name');
   const emailInput = document.getElementById('user-email');
   const errorMessage = document.getElementById('error-message');
+  const confirmationBox = document.getElementById('confirmation-box');
 
   const offers = [
     { id: "Naturcamping", name: "Naturcamping", adult: 1500, child: 900 },
@@ -62,27 +63,33 @@ document.addEventListener('DOMContentLoaded', () => {
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      if (errorMessage) {
+        errorMessage.textContent = "";
+      }
+      if (confirmationBox) {
+        confirmationBox.textContent = "";
+      }
+      activitySelect.style.borderColor = "";
+      nameInput.style.borderColor = "";
+      emailInput.style.borderColor = "";
+
       let hasError = false;
 
-      if (!activitySelect.value) {
+      if (!activitySelect.value || activitySelect.value === "") {
         activitySelect.style.borderColor = "#d93025";
         hasError = true;
-      } else {
-        activitySelect.style.borderColor = "";
       }
 
-      if (!nameInput.value.trim()) {
+      if (nameInput.value.trim() === "") {
         nameInput.style.borderColor = "#d93025";
         hasError = true;
-      } else {
-        nameInput.style.borderColor = "";
       }
 
-      if (!emailInput.checkValidity() || !emailInput.value.trim()) {
+      const emailValue = emailInput.value.trim();
+      const emailValid = emailValue.includes('@') && emailValue.includes('.');
+      if (emailValue === "" || !emailValid) {
         emailInput.style.borderColor = "#d93025";
         hasError = true;
-      } else {
-        emailInput.style.borderColor = "";
       }
 
       if (hasError) {
@@ -100,7 +107,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const total = totalPriceSpan.textContent;
       const name = nameInput.value.trim();
 
-      alert(`Tack för din bokningsförfrågan, ${name}!\n\nÄventyr: ${selectedOption}\nTotalt att betala: ${total}\n\nVi har skickat en bekräftelse till din e-post.`);
+      if (confirmationBox) {
+        confirmationBox.style.background = "#e6f4ea";
+        confirmationBox.style.color = "#137333";
+        confirmationBox.style.padding = "1rem";
+        confirmationBox.style.borderRadius = "var(--radius)";
+        confirmationBox.style.marginTop = "1rem";
+        confirmationBox.style.fontWeight = "600";
+        confirmationBox.textContent = `Tack för din bokningsförfrågan, ${name}! Äventyr: ${selectedOption}. Totalt att betala: ${total}. Vi har skickat en bekräftelse till din e-post.`;
+      }
 
       bookingForm.reset();
       totalPriceSpan.textContent = "0 kr";
