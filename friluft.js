@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalPriceSpan = document.getElementById('total-price');
   const bookingForm = document.getElementById('booking-form');
 
-  // ربط أزرار "Välj och boka" في الكروت ليختار النشاط تلقائياً في النموذج
+  
   const selectButtons = document.querySelectorAll('.select-activity');
   selectButtons.forEach(button => {
     button.addEventListener('click', (e) => {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // دالة لحساب السعر الإجمالي
+ 
   function calculateTotal() {
     const selectedOption = activitySelect.options[activitySelect.selectedIndex];
     if (!selectedOption || !selectedOption.dataset.adult) {
@@ -37,12 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
     totalPriceSpan.textContent = total + " kr";
   }
 
-  // الاستماع لتغيير البيانات لإعادة حساب السعر فوراً
+  // 
   if (activitySelect) activitySelect.addEventListener('change', calculateTotal);
   if (adultsInput) adultsInput.addEventListener('input', calculateTotal);
   if (childrenInput) childrenInput.addEventListener('input', calculateTotal);
 
-  // التعامل مع إرسال النموذج
+  // 
   if (bookingForm) {
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();

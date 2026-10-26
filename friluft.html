@@ -40,7 +40,7 @@
     <main>
       <div class="container">
         
-        <!-- الأنشطة الأربعة مع أسعار الكبار والأطفال -->
+        
         <section class="four-ways" id="four-ways">
           <h2>Fyra spännande äventyr</h2>
           <div class="four-ways-grid">
@@ -100,17 +100,17 @@
           </div>
         </section>
 
-       <!-- قسم الحجز في الصفحة -->
+       
 <section id="booking-section" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin: 3rem 0;">
   <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Skicka din bokningsförfrågan</h2>
   
-  <!-- أضفنا هنا novalidate لإيقاف التحقق الافتراضي للمتصفح -->
+  
   <form id="booking-form" novalidate>
     
     <div style="margin-bottom: 1rem;">
       <label for="activity-select" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Välj äventyr:</label>
       <select id="activity-select" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit;">
-        <!-- سيتم تعبئة الخيارات برمجياً عبر الجافاسكريبت -->
+       
         <option value="" disabled selected>-- Välj ett äventyr --</option>
       </select>
     </div>
@@ -133,14 +133,14 @@
 
     <div style="margin-bottom: 1.5rem;">
       <label for="user-email" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">E-postadress:</label>
-      <!-- تم تصحيح email5 إلى email -->
+     
       <input type="email" id="user-email" placeholder="namn@exempel.se" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
     </div>
 
-    <!-- مكان ظهور رسالة الخطأ عند الإدخال الخاطئ -->
+    
     <div id="error-message" style="color: #d93025; font-weight: 600; margin-bottom: 1rem;"></div>
 
-    <!-- عرض السعر الإجمالي -->
+    
     <div style="background: var(--bg); padding: 1rem; border-radius: var(--radius); margin-bottom: 1.5rem; font-weight: 700; font-size: 1.1rem;">
       Totalt pris: <span id="total-price" style="color: var(--primary);">0 kr</span>
     </div>
@@ -148,7 +148,7 @@
     <button type="submit" class="hero-btn" style="border: none; cursor: pointer; width: 100%; text-align: center;">Skicka bokningsförfrågan</button>
   </form>
 
-  <!-- مكان ظهور صندوق التأكيد بعد نجاح الحجز -->
+  
   <div id="confirmation-box"></div>
 </section>
 
@@ -163,7 +163,7 @@
 
   </div>
 
-  <!-- ملف جافاسكريبت لحساب السعر التلقائي ونموذج الحجز -->
+  
   <script src="friluft.js"></script>
 </body>
 </html>
