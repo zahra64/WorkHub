@@ -435,13 +435,11 @@ header .container {
   transition: all 0.2s ease-in-out;
 }
 
-/* الزر النشط والتأثير عند مرور الماوس */
 .nav-link.active,
 .nav-link:hover {
   border-color: var(--accent);
 }
 
-/* التجاوب مع شاشات الجوال */
 @media (max-width: 768px) {
   header .container {
     flex-direction: column;
