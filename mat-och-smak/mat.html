@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mat och smak | WorkHub</title>
+        <link rel="stylesheet" href="mat.css">
+        <script src="mat.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Mat och smak</h1>
+            <p>Upptäck nya smakupplevelser!</p>
+        </header>
+        <main>
+            <section id="erbjdanden">
+                <h2>Våra erbudanden</h2>
+                <div id="erbjudande-lista">
+                    <!--JavaScript visar erbjudandena här-->
+                </div>
+            </section>
+            <section id="bokning">
+                <h2>Boka din Upplevelse</h2>
+
+                <form id="bokningsform" novalidate>
+                    <label for="namn">Namn</label>
+                    <input type="text" id="namn">
+                    <p id="namn-fel"></p>
+
+                    <label for="email">E-post</label>
+                    <input type="text" id="email">
+                   <p id="email-fel"></p>
+
+                   <label for="antal">Antal personer (1-5)</label>
+                   <input type="number" id="antal" min="1" value="1">
+                   <p id="antal-fel"></p>
+
+                   <p id="totalpris"> Välj ett erbjudande först.</p>
+
+                   <button type="submit">Bekräfta bokning</button>
+                   <button type="reset">Börja om</button>
+
+                </form>
+                <div id="bekräftelse" hidden></div>
+            </section>
+        </main>
+    </body>
+
+</html>
