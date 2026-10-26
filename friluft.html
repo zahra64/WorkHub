@@ -100,56 +100,63 @@
           </div>
         </section>
 
-        <!-- قسم نموذج الحجز الفعلي في نفس الصفحة -->
-        <section id="booking-section" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin: 3rem 0;">
-          <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Skicka din bokningsförfrågan</h2>
-          <form id="booking-form">
-            <div style="margin-bottom: 1rem;">
-              <label for="activity-select" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Välj äventyr:</label>
-              <select id="activity-select" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit;">
-                <option value="" disabled selected>-- Välj ett äventyr --</option>
-                <option value="Naturcamping" data-adult="1500" data-child="900">Naturcamping (Vuxen: 1500 kr, Barn: 900 kr)</option>
-                <option value="Kanotpaddling" data-adult="800" data-child="500">Kanotpaddling (Vuxen: 800 kr, Barn: 500 kr)</option>
-                <option value="Bergsvandring" data-adult="1200" data-child="700">Bergsvandring (Vuxen: 1200 kr, Barn: 700 kr)</option>
-                <option value="Cykeltur" data-adult="950" data-child="600">Cykeltur (Vuxen: 950 kr, Barn: 600 kr)</option>
-              </select>
-            </div>
+       <!-- قسم الحجز في الصفحة -->
+<section id="booking-section" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin: 3rem 0;">
+  <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Skicka din bokningsförfrågan</h2>
+  
+  <!-- أضفنا هنا novalidate لإيقاف التحقق الافتراضي للمتصفح -->
+  <form id="booking-form" novalidate>
+    
+    <div style="margin-bottom: 1rem;">
+      <label for="activity-select" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Välj äventyr:</label>
+      <select id="activity-select" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit;">
+        <!-- سيتم تعبئة الخيارات برمجياً عبر الجافاسكريبت -->
+        <option value="" disabled selected>-- Välj ett äventyr --</option>
+      </select>
+    </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-              <div>
-                <label for="adults-count" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Antal vuxna:</label>
-                <input type="number" id="adults-count" min="0" max="10" value="1" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
-              </div>
-              <div>
-                <label for="children-count" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Antal barn:</label>
-                <input type="number" id="children-count" min="0" max="10" value="0" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
-              </div>
-            </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+      <div>
+        <label for="adults-count" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Antal vuxna (1-5):</label>
+        <input type="number" id="adults-count" min="1" max="5" value="1" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+      </div>
+      <div>
+        <label for="children-count" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Antal barn (0-5):</label>
+        <input type="number" id="children-count" min="0" max="5" value="0" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+      </div>
+    </div>
 
-            <div style="margin-bottom: 1rem;">
-              <label for="user-name" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Ditt namn:</label>
-              <input type="text" id="user-name" required placeholder="Förnamn Efternamn" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
-            </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="user-name" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Ditt namn:</label>
+      <input type="text" id="user-name" placeholder="Förnamn Efternamn" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+    </div>
 
-            <div style="margin-bottom: 1.5rem;">
-              <label for="user-email" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">E-postadress:</label>
-              <input type="email5" id="user-email" required placeholder="namn@exempel.se" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
-            </div>
+    <div style="margin-bottom: 1.5rem;">
+      <label for="user-email" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">E-postadress:</label>
+      <!-- تم تصحيح email5 إلى email -->
+      <input type="email" id="user-email" placeholder="namn@exempel.se" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+    </div>
 
-            <!-- عرض السعر الإجمالي -->
-            <div style="background: var(--bg); padding: 1rem; border-radius: var(--radius); margin-bottom: 1.5rem; font-weight: 700; font-size: 1.1rem;">
-              Totalt pris: <span id="total-price" style="color: var(--primary);">0 kr</span>
-            </div>
+    <!-- مكان ظهور رسالة الخطأ عند الإدخال الخاطئ -->
+    <div id="error-message" style="color: #d93025; font-weight: 600; margin-bottom: 1rem;"></div>
 
-            <button type="submit" class="hero-btn" style="border: none; cursor: pointer; width: 100%; text-align: center;">Skicka bokningsförfrågan</button>
-          </form>
-        </section>
+    <!-- عرض السعر الإجمالي -->
+    <div style="background: var(--bg); padding: 1rem; border-radius: var(--radius); margin-bottom: 1.5rem; font-weight: 700; font-size: 1.1rem;">
+      Totalt pris: <span id="total-price" style="color: var(--primary);">0 kr</span>
+    </div>
+
+    <button type="submit" class="hero-btn" style="border: none; cursor: pointer; width: 100%; text-align: center;">Skicka bokningsförfrågan</button>
+  </form>
+
+  <!-- مكان ظهور صندوق التأكيد بعد نجاح الحجز -->
+  <div id="confirmation-box"></div>
+</section>
 
       </div>
     </main> 
 
     <footer class="site-footer">
-      <div class="container" style="text-align: center; padding: 20px 0; color: #fff; font-size: 0.9rem;">
+      <div class="container" style="text-align: center; padding: 20px 0; color: #ffffff; font-size: 0.9rem;">
         <p>© 2026 WorkHub, skolprojekt. Inga riktiga bokningar görs.</p>
       </div>
     </footer>
