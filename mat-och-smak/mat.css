@@ -178,3 +178,9 @@ button:hover {
     border-radius: 4px;
     font-size: 14px;
  }
+ #erbjudande-fel,
+ #email-fel {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+ }

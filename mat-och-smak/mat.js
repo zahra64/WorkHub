@@ -21,39 +21,44 @@ const erbjudanden = [
 ];
 let valtErbjudande = null;
 const erbjudandeLista = document.getElementById("erbjudande-lista");
-erbjudanden.forEach(function (erbjudande) 
-{const kort = document.createElement("article");
+const erbjudandeFel = document.getElementById("erbjudande-fel");
+erbjudanden.forEach(function (erbjudande) {
+    const kort = document.createElement("article");
     const rubrik = document.createElement("h3");
     rubrik.textContent = erbjudande.namn;
     const beskrivning = document.createElement("p");
     beskrivning.textContent = erbjudande.beskrivning;
-    const pris= document.createElement("p");
+    const pris = document.createElement("p");
     pris.textContent = erbjudande.pris + "kr / person";
     kort.appendChild(rubrik);
     kort.appendChild(beskrivning);
     kort.appendChild(pris);
-    const knapp = document.createElement ("button");
+    const knapp = document.createElement("button");
     knapp.textContent = "valj erbjudande";
     knapp.type = "button";
-    knapp.addEventListener ("click", function (){
+
+    knapp.addEventListener("click", function () {
         valtErbjudande = erbjudande;
-    console.log ("valt erbjudande:", valtErbjudande.namn);
-uppdateravaldaErbjudanden();
-uppdateraPris(); });
-kort.appendChild (knapp);
+        erbjudandeFel.textContent = "";
+        console.log("valt erbjudande:", valtErbjudande.namn);
+        uppdateravaldaErbjudanden();
+        uppdateraPris();
+    });
+    kort.appendChild(knapp);
     erbjudandeLista.appendChild(kort);
 });
+
 function uppdateravaldaErbjudanden() {
     const allakort = erbjudandeLista.querySelectorAll("article");
-    allakort.forEach(function (kort, index){
+    allakort.forEach(function (kort, index) {
         const erbjudande = erbjudanden[index];
         const knapp = kort.querySelector("button");
-        if (erbjudande.id=== valtErbjudande.id) {
+        if (erbjudande.id === valtErbjudande.id) {
             knapp.textContent = "✓ Valt erbjudande";
-           kort.classList.add("valt");
-       } else {
-           knapp.textContent = "Välj erbjudande";
-           kort.classList.remove("valt");
+            kort.classList.add("valt");
+        } else {
+            knapp.textContent = "Välj erbjudande";
+            kort.classList.remove("valt");
         }
     });
 }
@@ -61,19 +66,21 @@ const antalInput = document.getElementById("antal");
 const totalpris = document.getElementById("totalpris");
 function uppdateraPris() {
 
-if (!valtErbjudande) {
+    if (!valtErbjudande) {
 
 
-    totalpris.textContent = "Välj ett erbjudande först.";
-return; }
-const antal = Number(antalInput.value);
-if (antal <1 || antal > 5) { totalpris.textContent = "Antal personer måste vara mellan 1 och 5.";
-    return;
+        totalpris.textContent = "Välj ett erbjudande först.";
+        return;
+    }
+    const antal = Number(antalInput.value);
+    if (antal < 1 || antal > 5) {
+        totalpris.textContent = "Antal personer måste vara mellan 1 och 5.";
+        return;
+    }
+    const summa = valtErbjudande.pris * antal;
+    totalpris.textContent = "totalpris: " + summa + " kr";
 }
-const summa = valtErbjudande.pris * antal;
-totalpris.textContent = "totalpris: " + summa + " kr";
-}
-antalInput.addEventListener( "input" , uppdateraPris);
+antalInput.addEventListener("input", uppdateraPris);
 
 const bokningsform = document.getElementById("bokningsform");
 
@@ -94,7 +101,7 @@ function valideraNamn() {
     return true;
 }
 
- function valideraEmail() {
+function valideraEmail() {
 
     const email = emailInput.value.trim();
 
@@ -130,46 +137,45 @@ function valideraNamn() {
 
     return true;
 
-}
- 
+} emailInput.addEventListener("input", valideraEmail);
+
+
+namnInput.addEventListener("input", valideraNamn);
+
+antalInput.addEventListener("input", valideraAntal);
+
 function valideraAntal() {
-   const antal = Number(antalInput.value);
-   if (
-       antalInput.value.trim() === "" ||
-       !Number.isInteger(antal) ||
-       antal < 1 ||
-       antal > 5
-   ) {
-       antalFel.textContent =
-           "Ange ett heltal mellan 1 och 5.";
-       return false;
-   }
-   antalFel.textContent = "";
-   return true;
+    const antal = Number(antalInput.value);
+    if (
+        antalInput.value.trim() === "" ||
+        !Number.isInteger(antal) ||
+        antal < 1 ||
+        antal > 5
+    ) {
+        antalFel.textContent =
+            "Ange ett heltal mellan 1 och 5.";
+        return false;
+    }
+    antalFel.textContent = "";
+    return true;
 }
 
-bokningsform.addEventListener( "submit",
-    function (event) {
-        event.preventDefault();
-        const giltigtNamn = valideraNamn();
-        const giltigtEmail = valideraEmail();
-        const giltigtAntal = valideraAntal();
-        if ( !valtErbjudande) {
-            totalpris.textContent = "Välj ett erbjudande först.";
-            return;
-        }
-        if (
-   giltigtNamn &&
-   giltigtEmail &&
-   giltigtAntal
-) {
-   const bekraftelse =
-       document.getElementById("bekräftelse");
-   bekraftelse.hidden = false;
-   bekraftelse.innerHTML = `
-   
-   
-   
+bokningsform.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const giltigtNamn = valideraNamn();
+    const giltigtEmail = valideraEmail();
+    const giltigtAntal = valideraAntal();
+    if (!valtErbjudande) {
+        erbjudandeFel.textContent = "Välj ett erbjudande först.";
+    } else {
+        erbjudandeFel.textContent = "";
+    }
+    if (!valtErbjudande || !giltigtNamn || !giltigtEmail || !giltigtAntal) {
+        return;
+    }
+    const bekraftelse = document.getElementById("bekräftelse");
+    bekraftelse.hidden = false;
+    bekraftelse.innerHTML = `
 <h3>Bokning bekräftad</h3>
 <p>Namn: ${namnInput.value}</p>
 <p>E-post: ${emailInput.value}</p>
@@ -177,30 +183,27 @@ bokningsform.addEventListener( "submit",
 <p>Antal personer: ${antalInput.value}</p>
 <p>Totalpris: ${valtErbjudande.pris * Number(antalInput.value)} kr</p>
    `;
-   namnInput.disabled = true;
-   emailInput.disabled = true;
-   antalInput.disabled = true;
-   document.querySelectorAll("#erbjudande-lista button")
-   .forEach(function (knapp) {
-    knapp.disabled = true;
-   });
-}
-    }
-
-);
+    namnInput.disabled = true;
+    emailInput.disabled = true;
+    antalInput.disabled = true;
+    document.querySelectorAll("#erbjudande-lista button")
+        .forEach(function (knapp) {
+            knapp.disabled = true;
+        });
+});
 const resetKnapp = document.querySelector('button[type ="reset"]');
-resetKnapp.addEventListener("click" , function () {
+resetKnapp.addEventListener("click", function () {
     namnInput.disabled = false;
     emailInput.disabled = false;
     antalInput.disabled = false;
     document.querySelectorAll("#erbjudande-lista button")
-    .forEach(function (knapp) {
-        knapp.disabled = false;
-    });
+        .forEach(function (knapp) {
+            knapp.disabled = false;
+        });
     valtErbjudande = null;
     document.querySelectorAll("article").forEach(function (kort) {
         kort.classList.remove("valt");
-        const knapp = kort.querySelector( "button");
+        const knapp = kort.querySelector("button");
         knapp.textContent = "Välj erbjudande";
     });
     totalpris.textContent = "Välj ett erbjudande först.";
