@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spel och mysterier – WorkHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/spel.css">
+</head>
+<body>
+  <div class="wrapper">
+
+    <header>
+      <div class="container">
+        <a href="index.html" class="logo">WorkHub</a>
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Start</a>
+          <a href="spel.html" class="nav-link active" aria-current="page">Spel och mysterier</a>
+          <a href="friluft.html" class="nav-link">Friluft</a>
+          <a href="workshops.html" class="nav-link">Kreativa workshops</a>
+          <a href="mat-och-smak/mat.html" class="nav-link">Mat och smak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Sidans hero, samma stil som startsidan men lägre -->
+      <section class="page-hero">
+        <div class="container">
+          <p class="page-hero-tag">Spel och mysterier</p>
+          <h1>Lös gåtan tillsammans</h1>
+          <p>Escape room, VR eller mordgåta. Välj en upplevelse, ange antal personer och skicka din bokningsförfrågan.</p>
+        </div>
+      </section>
+
+      <div class="container booking-layout">
+
+        <!-- novalidate: webbläsarens egen validering är avstängd, JavaScript validerar -->
+        <form id="booking-form" class="booking-form" novalidate>
+
+          <section class="booking-step">
+            <h2 class="booking-step-title"><span class="step-number">1</span> Välj upplevelse</h2>
+            <div id="activity-list" class="offer-grid"></div>
+            <p id="activity-error" class="field-error" hidden></p>
+          </section>
+
+          <section class="booking-step">
+            <h2 class="booking-step-title"><span class="step-number">2</span> Antal personer</h2>
+            <label for="guests">Antal personer (1–5)</label>
+            <input id="guests" type="text" inputmode="numeric" value="1" class="input-narrow">
+            <p id="guests-error" class="field-error" hidden></p>
+          </section>
+
+          <section class="booking-step">
+            <h2 class="booking-step-title"><span class="step-number">3</span> Dina uppgifter</h2>
+            <div class="field-row">
+              <div>
+                <label for="customer-name">Namn</label>
+                <input id="customer-name" type="text">
+                <p id="name-error" class="field-error" hidden></p>
+              </div>
+              <div>
+                <label for="customer-email">E-postadress</label>
+                <input id="customer-email" type="text">
+                <p id="email-error" class="field-error" hidden></p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Prisrutan ligger bredvid formuläret på stor skärm -->
+          <aside class="price-box">
+            <h2>Din bokning</h2>
+            <p id="price-summary" class="price-summary">Inget erbjudande valt</p>
+            <p class="price-label">Totalpris</p>
+            <p id="total-price" class="total-price">–</p>
+            <p id="price-message" class="price-message">Välj ett erbjudande för att se priset.</p>
+
+            <div class="price-actions">
+              <button id="submit-button" type="submit" class="btn-primary">Skicka bokningsförfrågan</button>
+              <button type="button" class="btn-outline" data-reset>Börja om</button>
+            </div>
+          </aside>
+        </form>
+
+        <!-- Bekräftelse: visas när alla uppgifter är giltiga -->
+        <section id="confirmation" class="receipt" hidden>
+          <h2>✓ Tack! Din bokningsförfrågan är skickad</h2>
+          <ul id="confirmation-list"></ul>
+          <button type="button" class="btn-outline" data-reset>Börja om</button>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 WorkHub, skolprojekt. Inga riktiga bokningar görs.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/spel.js"></script>
+</body>
+</html>

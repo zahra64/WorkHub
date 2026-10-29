@@ -1,0 +1,321 @@
+[hidden] {
+  display: none !important;
+}
+
+
+.page-hero {
+  background: var(--primary);
+  color: #fff;
+  padding: 2.5rem 0 3rem;
+  border-bottom: 4px solid var(--accent);
+}
+
+.page-hero h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.page-hero p {
+  max-width: 600px;
+  color: #e0e2f5;
+}
+
+.page-hero-tag {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text) !important;
+  background: var(--accent);
+  border-radius: 20px;
+}
+
+
+.booking-layout {
+  padding-top: 2rem;
+}
+
+.booking-form {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 992px) {
+  .booking-form {
+    grid-template-columns: 1fr 320px;
+    align-items: start;
+  }
+
+  .booking-step {
+    grid-column: 1;
+  }
+
+  .price-box {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    position: sticky;
+    top: 1rem;
+  }
+}
+
+
+.booking-step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.booking-step-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+.offer-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  font: inherit;
+  text-align: left;
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.offer-card:hover:not(:disabled) {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+.offer-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.offer-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.35rem;
+  padding: 0.9rem;
+}
+
+.offer-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.offer-description {
+  font-size: 0.9rem;
+}
+
+.offer-price {
+  margin-top: auto;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.offer-pick,
+.offer-picked {
+  display: block;
+  margin-top: 0.4rem;
+  padding: 0.4rem;
+  text-align: center;
+  font-weight: 700;
+  border-radius: var(--radius);
+}
+
+.offer-pick {
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.offer-picked {
+  display: none;
+  color: var(--text);
+  background: var(--accent);
+}
+
+
+.offer-card[aria-pressed="true"] {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--accent);
+}
+
+.offer-card[aria-pressed="true"] .offer-pick {
+  display: none;
+}
+
+.offer-card[aria-pressed="true"] .offer-picked {
+  display: block;
+}
+
+/* ----- Formulärfält ----- */
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.input-narrow {
+  max-width: 8rem;
+}
+
+input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+input[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.field-error {
+  margin: 0.35rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--error);
+}
+
+.field-error::before {
+  content: "Fel: ";
+}
+
+
+.price-box {
+  padding: 1.25rem;
+  color: #fff;
+  background: var(--primary);
+  border-radius: var(--radius);
+}
+
+.price-box h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.price-summary {
+  font-weight: 700;
+}
+
+.price-label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #e0e2f5;
+}
+
+.total-price {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.price-message {
+  font-size: 0.9rem;
+  color: #e0e2f5;
+}
+
+.price-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+
+.btn-primary,
+.btn-outline {
+  padding: 0.7rem 1.1rem;
+  font: inherit;
+  font-weight: 700;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: var(--text);
+  background: var(--accent);
+}
+
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  color: #fff;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:focus-visible,
+.btn-outline:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.receipt {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 2px solid #000;
+  border-radius: var(--radius);
+}
+
+.receipt li {
+  margin-bottom: 0.25rem;
+}
+
+
+.receipt .btn-outline {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.receipt .btn-outline:hover {
+  color: #fff;
+  background: var(--primary);
+}
