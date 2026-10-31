@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="wrapper">
-    
+   
     <!-- Header -->
     <header>
       <div class="container">
@@ -25,7 +25,7 @@
         </nav>
       </div>
     </header>
-
+ 
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="container">
@@ -36,15 +36,15 @@
         </div>
       </div>
     </section>
-
+ 
     <main>
       <div class="container">
-        
-        
+       
+       
         <section class="four-ways" id="four-ways">
           <h2>Fyra spännande äventyr</h2>
           <div class="four-ways-grid">
-
+ 
             <!-- Activity 1 -->
             <article class="way-card">
               <div class="way-card-img way-card-img-camping">
@@ -57,7 +57,7 @@
                 <a href="#booking-section" class="way-card-link select-activity" data-activity="Naturcamping">Välj och boka</a>
               </div>
             </article>
-
+ 
             <!-- Activity 2 -->
             <article class="way-card">
               <div class="way-card-img way-card-img-kanot">
@@ -70,7 +70,7 @@
                 <a href="#booking-section" class="way-card-link select-activity" data-activity="Kanotpaddling">Välj och boka</a>
               </div>
             </article>
-
+ 
             <!-- Activity 3 -->
             <article class="way-card">
               <div class="way-card-img way-card-img-vandring">
@@ -83,7 +83,7 @@
                 <a href="#booking-section" class="way-card-link select-activity" data-activity="Bergsvandring">Välj och boka</a>
               </div>
             </article>
-
+ 
             <!-- Activity 4 -->
             <article class="way-card">
               <div class="way-card-img way-card-img-cykel">
@@ -96,71 +96,88 @@
                 <a href="#booking-section" class="way-card-link select-activity" data-activity="Cykeltur">Välj och boka</a>
               </div>
             </article>
-
+ 
           </div>
         </section>
-
+ 
        
 <section id="booking-section" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin: 3rem 0;">
   <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Skicka din bokningsförfrågan</h2>
-  
-  
+ 
+ 
   <form id="booking-form" novalidate>
-    
+   
     <div style="margin-bottom: 1rem;">
       <label for="activity-select" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Välj äventyr:</label>
       <select id="activity-select" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit;">
        
         <option value="" disabled selected>-- Välj ett äventyr --</option>
       </select>
+      <p id="activity-error" class="field-error" hidden></p>
     </div>
-
+ 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
       <div>
         <label for="adults-count" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Antal vuxna (1-5):</label>
         <input type="number" id="adults-count" min="1" max="5" value="1" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+        <p id="adults-error" class="field-error" hidden></p>
       </div>
       <div>
         <label for="children-count" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Antal barn (0-5):</label>
         <input type="number" id="children-count" min="0" max="5" value="0" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+        <p id="children-error" class="field-error" hidden></p>
       </div>
     </div>
-
+ 
     <div style="margin-bottom: 1rem;">
       <label for="user-name" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">Ditt namn:</label>
       <input type="text" id="user-name" placeholder="Förnamn Efternamn" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+      <p id="name-error" class="field-error" hidden></p>
     </div>
-
+ 
     <div style="margin-bottom: 1.5rem;">
       <label for="user-email" style="display: block; font-weight: 700; margin-bottom: 0.5rem;">E-postadress:</label>
      
       <input type="email" id="user-email" placeholder="namn@exempel.se" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+      <p id="email-error" class="field-error" hidden></p>
     </div>
-
-    
-    <div id="error-message" style="color: #d93025; font-weight: 600; margin-bottom: 1rem;"></div>
-
-    
+ 
+   
+ 
+   
     <div style="background: var(--bg); padding: 1rem; border-radius: var(--radius); margin-bottom: 1.5rem; font-weight: 700; font-size: 1.1rem;">
-      Totalt pris: <span id="total-price" style="color: var(--primary);">0 kr</span>
+      Totalt pris: <span id="total-price" style="color: var(--primary);">–</span>
+      <p id="price-message" style="margin: 0.25rem 0 0; font-size: 0.9rem; font-weight: 400;">Välj ett äventyr för att se priset.</p>
     </div>
-
+ 
     <button type="submit" class="hero-btn" style="border: none; cursor: pointer; width: 100%; text-align: center;">Skicka bokningsförfrågan</button>
+    <button type="button" id="reset-button" class="reset-btn">Börja om</button>
   </form>
-
-  
-  <div id="confirmation-box"></div>
+ 
+ 
+  <!-- bekräftelse: visas när bokningen är giltig, formuläret döljs då -->
+  <section id="confirmation-box" class="confirmation" hidden>
+    <h3>Tack! Din bokningsförfrågan är skickad</h3>
+    <dl class="confirmation-list">
+      <div><dt>Namn</dt><dd id="confirmation-name"></dd></div>
+      <div><dt>E-post</dt><dd id="confirmation-email"></dd></div>
+      <div><dt>Äventyr</dt><dd id="confirmation-activity"></dd></div>
+      <div><dt>Antal</dt><dd id="confirmation-count"></dd></div>
+      <div><dt>Totalpris</dt><dd id="confirmation-total"></dd></div>
+    </dl>
+    <button type="button" id="new-booking-button" class="reset-btn">Börja om</button>
+  </section>
 </section>
-
+ 
       </div>
-    </main> 
-
+    </main>
+ 
   <footer class="site-footer" style="background-color: #2a2f6b; border-top: 3px solid #ffc233; padding: 1.5rem 0; margin-top: 3rem;">
   <div class="container" style="text-align: center; color: #ffffff; font-size: 0.9rem;">
     <p>&copy; 2026 WorkHub, skolprojekt. Inga riktiga bokningar görs.</p>
   </div>
 </footer>
-
+ 
   </div>
   <script src="friluft.js"></script>
 </body>
